@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameDot</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        header {
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #777;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 55px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            letter-spacing: -5px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .games {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+            padding-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .game-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 18px;
+            padding: 25px;
+            min-height: 190px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .game-icon {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .game-card h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .game-card p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .play {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #111;
+        }
+
+        footer {
+            border-top: 1px solid #ddd;
+            background: white;
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .tagline {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+
+            .games {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Game<span>Dot</span></div>
+        <div class="tagline">Tiny games. Big fun.</div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h1>GameDot</h1>
+            <p>A collection of small games made for curious people.</p>
+        </section>
+
+        <section class="games">
+            <h2 class="section-title">All Games</h2>
+
+            <div class="game-grid">
+
+                <div class="game-card" onclick="openGame('doodle-run')">
+                    <div>
+                        <div class="game-icon">🏃</div>
+                        <h2>Doodle Run</h2>
+                        <p>Run, jump and survive for as long as you can.</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('clicker')">
+                    <div>
+                        <div class="game-icon">👆</div>
+                        <h2>Clicker</h2>
+                        <p>How many times can you click?</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('riddle')">
+                    <div>
+                        <div class="game-icon">❓</div>
+                        <h2>Riddle Game</h2>
+                        <p>Test your brain with tricky riddles.</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('sorting')">
+                    <div>
+                        <div class="game-icon">🔢</div>
+                        <h2>Sorting Game</h2>
+                        <p>Put everything in the correct order.</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('decision')">
+                    <div>
+                        <div class="game-icon">⚖️</div>
+                        <h2>Decision Maker</h2>
+                        <p>Your choices change what happens next.</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('creator')">
+                    <div>
+                        <div class="game-icon">🎨</div>
+                        <h2>Creator</h2>
+                        <p>Build and create your own little world.</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('world-builder')">
+                    <div>
+                        <div class="game-icon">🌍</div>
+                        <h2>World Builder</h2>
+                        <p>Create a world and decide how it works.</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+                <div class="game-card" onclick="openGame('reaction')">
+                    <div>
+                        <div class="game-icon">⚡</div>
+                        <h2>Reaction Test</h2>
+                        <p>How fast can you react?</p>
+                    </div>
+                    <div class="play">Play →</div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 GameDot
+    </footer>
+
+    <script>
+        function openGame(game) {
+            const gamePages = {
+                "doodle-run": "games/doodle-run.html",
+                "clicker": "games/clicker.html",
+                "riddle": "games/riddle.html",
+                "sorting": "games/sorting.html",
+                "decision": "games/decision.html",
+                "creator": "games/creator.html",
+                "world-builder": "games/world-builder.html",
+                "reaction": "games/reaction.html"
+            };
+
+            if (gamePages[game]) {
+                window.location.href = gamePages[game];
+            }
+        }
+    </script>
+
+</body>
+</html>
